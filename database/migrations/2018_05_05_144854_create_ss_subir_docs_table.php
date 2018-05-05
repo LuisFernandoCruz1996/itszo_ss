@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateSsSubirDocsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('ss_subir_docs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombres');
-            $table->string('apellidos');
-            $table->string('no_identificacion');
-            $table->enum('rol', ['Gefecar', 'otro']);
-            $table->string('password');
-            $table->rememberToken();
+            $table->integer('no_control')->unsigned();
+            $table->foreign('no_control')->references('id')->on('ss_alumnos');
+            $table->string('nombre_doc');
+            $table->string('bimestre');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('ss_subir_docs');
     }
 }
