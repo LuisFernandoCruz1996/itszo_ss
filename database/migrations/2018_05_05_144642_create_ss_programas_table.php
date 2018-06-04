@@ -14,18 +14,17 @@ class CreateSsProgramasTable extends Migration
     public function up()
     {
         Schema::create('ss_programas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('no_control')->unsigned();
-            $table->foreign('no_control')->references('id')->on('ss_alumnos');
-            $table->string('dependencia_of');
-            $table->string('titular_dep');
-            $table->string('puesto_dep');
-            $table->string('nombre_programa');
-            $table->string('modalidad');
-            $table->date('fecha_inicio');
-            $table->date('fecha_terminacion');
-            $table->string('programa_actividad');
-            $table->enum('tip_pro',['EPA','AC','DS','DC','ACULT','AALS','AD','MA','Otro']);
+            $table->increments('id')->unsigned();
+            $table->foreign('id')->references('id')->on('ss_alumnos');
+            $table->string('dependencia_of')->nullable();
+            $table->string('titular_dep')->nullable();
+            $table->string('puesto_dep')->nullable();
+            $table->string('nombre_programa')->nullable();
+            $table->enum('modalidad',['Interno','Externo'])->nullable();
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_terminacion')->nullable();
+            $table->string('programa_actividad')->nullable();
+            $table->enum('tip_pro',['EPA','AC','DS','DC','ACULT','AALS','AD','MA','Otro'])->nullable();
             $table->timestamps();
         });
     }

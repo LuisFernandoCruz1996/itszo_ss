@@ -14,18 +14,15 @@ class CreateSsAlumnosTable extends Migration
     public function up()
     {
         Schema::create('ss_alumnos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombres');
-            $table->string('apellido_p');
-            $table->string('apellido_m');
-            $table->enum('sexo', ['Masculino','Femenino']);
-            $table->integer('telefono');
-            $table->string('domicilio');
-            $table->enum('carrera', ['IGE','II','ISC','LA','TSM','IEIS','IGES']);
-            $table->string('periodo');
-            $table->enum('semestre',['5','6','7','8','9','10','11']);
-            $table->string('correo');
-            $table->string('contraseña');
+            $table->increments('id')->unsigned();
+            $table->foreign('id')->references('id')->on('users');
+            $table->enum('sexo', ['Masculino','Femenino'])->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('domicilio')->nullable();
+            $table->enum('carrera', ['IGE','IND','ISC','LA','TSM','INFS','IGES'])->nullable();
+            $table->string('periodo')->nullable();
+            $table->enum('semestre',['5','6','7','8','9','10','11'])->nullable();
+            $table->string('correo')->nullable();
             $table->timestamps();
         });
     }

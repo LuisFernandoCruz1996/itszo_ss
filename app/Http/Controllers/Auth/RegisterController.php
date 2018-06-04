@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Alumno;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('acceso');
     }
 
     /**
@@ -49,9 +51,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            //'name' => 'required|string|max:255',
+            //'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6',
         ]);
     }
 
@@ -64,9 +66,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'id' => $data['no_identificacion'],
+            'nombres' => $data['nombres'],
+            'apellido_p' => $data['apellido_p'],
+            'apellido_m' => $data['apellido_m'],
+            'no_identificacion' => $data['no_identificacion'],
+            'rol' => 'Alumno',
+            'carrera' => 'otro',
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('acceso.create');
     }
 }

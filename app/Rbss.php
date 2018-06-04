@@ -9,4 +9,9 @@ class Rbss extends Model
     protected $table = "rbsss";
     
     protected $fillable = ['id','no_control','no_reporte','horas_total','horas_acumuladas',];
+
+    public function alumno()
+    {
+        return $this->belongsTo('App\Alumno');
+    }
 }

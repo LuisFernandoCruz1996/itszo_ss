@@ -16,9 +16,11 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombres');
-            $table->string('apellidos');
-            $table->string('no_identificacion');
-            $table->enum('rol', ['Gefecar', 'otro']);
+            $table->string('apellido_p');
+            $table->string('apellido_m');
+            $table->string('no_identificacion')->unique();
+            $table->enum('rol', ['Alumno','Jefe', 'Otro','Administrador', 'Acceso'])->default('Administrador');
+            $table->enum('carrera', ['IGE','IND','ISC','LA','TSM','INFS','IGES','otro'])->default('otro');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
