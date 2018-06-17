@@ -43,9 +43,17 @@ class Acceso
         {
             return $next($request);
         }
-        else
+        if($this->auth->User()->admin())
+        {
+            return redirect()->route('admin.welcome');
+        }
+        if($this->auth->User()->alumnos())
         {
             return redirect('/');
+        }
+        else
+        {
+            return redirect()->route('seguimiento.index');
         }
     }
 

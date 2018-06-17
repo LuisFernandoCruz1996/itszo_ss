@@ -1,304 +1,178 @@
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand border-bottom navbar-dark bg-success" style="background-color: #15593c; ">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-      </li>
-    </ul>
-    @guest                    
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link active" href="{{ route('login') }}">Iniciar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="{{route('create')}}">Registro</a>
-      </li>
-    </ul>
-    @endguest
-  </nav>
-  <!-- /.navbar -->
+<nav class="navbar navbar-expand" style="background-color: #1B396A; color: #fff;">
+    <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars" style="color: #fff;"></i></a>
+    <a class="navbar-brand" href="{{url('admin/')}}" style="color: #fff;"><img src="{{asset('plugins/images/logoitszoblanco.png')}}" alt="ITSZO" class="brand-image img-circle elevation-3"
+           style="opacity: .8; width: 25px; height: 25px;">Vinculacón-Servicio Social</a>
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="{{route('welcome')}}" class="brand-link">
-      <img src="{{asset('plugins/images/logoitszoblanco.png')}}" alt="ITSZO" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Servicio Social</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      @if(Auth::user())
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active bg-success">
-              <i class="icon ion-md-person"></i>
-              <p>
-                {{ Auth::user()->nombres }}
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('logout')}}" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Salír</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @if(Auth::user()->admin())
-          <li class="nav-item">
-            <a href="{{ url('/admin/users')}}" class="nav-link">
-              <i class="icon ion-md-contacts"></i>
-              <p>
-                Usuarios
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('/admin/accesos')}}" class="nav-link">
-              <i class="icon ion-md-key"></i>
-              <p>
-                Acceso
-              </p>
-            </a>
-          </li>
-          @endif
-          @if(Auth::user()->admin() or Auth::user()->jefeige())
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="icon ion-md-school"></i>
-              <p>
-                IGEM-2009-201
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Semestre</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Genero</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @endif
-          @if(Auth::user()->admin() or Auth::user()->jefeind())
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="icon ion-md-school"></i>
-              <p>
-                IIND-2010-227
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Semestre</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Genero</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @endif
-          @if(Auth::user()->admin() or Auth::user()->jefeisc())
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="icon ion-md-school"></i>
-              <p>
-                ISIC-2010-224
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Semestre</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Genero</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @endif
-          @if(Auth::user()->admin() or Auth::user()->jefeige())
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="icon ion-md-school"></i>
-              <p>
-                LADM-2010-234
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Semestre</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Genero</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @endif
-          @if(Auth::user()->admin() or Auth::user()->jefetsm())
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="icon ion-md-school"></i>
-              <p>
-                Técnico Superior Minas
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Semestre</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Genero</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @endif
-          @if(Auth::user()->admin() or Auth::user()->jefeinfs())
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="icon ion-md-school"></i>
-              <p>
-                IINF-2010-220
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Semestre</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Genero</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @endif
-          @if(Auth::user()->admin() or Auth::user()->jefeiges())
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="icon ion-md-school"></i>
-              <p>
-                IGEM-2009-201-Distancia
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Semestre</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Genero</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          @endif
+    <div class="navbar-collapse collapse">
+        @if(Auth::user()->admin())
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                    <a href="#" id="estadisticas" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: #fff;">Estadisticas</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="estadisticas">
+                        <a href="{{ url('admin/')}}" class="dropdown-item">Genero</a>
+                        <a href="{{route('estadistica.facualpss')}}" class="dropdown-item">Autoevaluación</a>
+                        <a href="{{route('estadistica.fecualpss')}}" class="dropdown-item">Evaluación</a>
+                        <a href="{{route('estadistica.feapsss')}}" class="dropdown-item">Actividades</a>
+                    </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/admin/users')}}" style="color: #fff;">Usuarios<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/admin/accesos')}}" style="color: #fff;">Acceso<span class="sr-only">(current)</span></a>
+            </li>
         </ul>
-      </nav>
-      @endif
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      </nav>
-      <!-- /.sidebar-menu -->
+        @endif
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown" >
+                <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #fff;"><i class="fa fa-user"></i> {{ Auth::user()->nombres }} {{ Auth::user()->apellido_p }} {{ Auth::user()->apellido_m }}</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
+                    <a href="#" class="dropdown-item">Profile</a>
+                    <a href="{{ route('logout')}}" class="dropdown-item">Salir</a>
+                </div>
+            </li>
+        </ul>
     </div>
-    <!-- /.sidebar -->
-  </aside>
-  <!-- Control Sidebar -->
-  <!-- /.control-sidebar -->
+</nav>
+
+<div class="d-flex">
+    <div class="sidebar sidebar-dark bg-dark">
+        <ul class="list-unstyled">
+            @if(Auth::user()->admin())
+            <li><a href="{{route('alumnos')}}"><i class="fas fa-user-graduate"></i> Alumnos Registrados</a></li>
+            @endif
+            @if(Auth::user()->admin() or Auth::user()->jefeige())
+            <li>
+                <a href="#ige" data-toggle="collapse">
+                    <i class="fas fa-briefcase"></i> IGEM-2009-201
+                </a>
+                <ul id="ige" class="list-unstyled collapse">
+                    <li><a href="{{route('seguimiento.indexige')}}">Todos</a></li>
+                    <li><a href="#igess" data-toggle="collapse">
+                         Semestre
+                        </a></li>
+                        <ul id="igess" class="list-unstyled collapse">
+                            <li><a href="{{route('seguimiento.indexiges5')}}">Semestre 5</a></li>
+                            <li><a href="{{route('seguimiento.indexiges6')}}">Semestre 6</a></li>
+                            <li><a href="{{route('seguimiento.indexiges7')}}">Semestre 7</a></li>
+                            <li><a href="{{route('seguimiento.indexiges8')}}">Semestre 8</a></li>
+                        </ul>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->admin() or Auth::user()->jefeind())
+            <li>
+                <a href="#ii" data-toggle="collapse">
+                    <i class="fas fa-industry"></i> IIND-2010-227
+                </a>
+                <ul id="ii" class="list-unstyled collapse">
+                    <li><a href="{{route('seguimiento.indexind')}}">Todos</a></li>
+                    <li><a href="#indss" data-toggle="collapse">
+                         Semestre
+                        </a></li>
+                        <ul id="indss" class="list-unstyled collapse">
+                            <li><a href="{{route('seguimiento.indexinds5')}}">Semestre 5</a></li>
+                            <li><a href="{{route('seguimiento.indexinds6')}}">Semestre 6</a></li>
+                            <li><a href="{{route('seguimiento.indexinds7')}}">Semestre 7</a></li>
+                            <li><a href="{{route('seguimiento.indexinds8')}}">Semestre 8</a></li>
+                        </ul>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->admin() or Auth::user()->jefeisc())
+            <li>
+                <a href="#isc" data-toggle="collapse">
+                    <i class="fa fa-laptop"></i> ISIC-2010-224
+                </a>
+                <ul id="isc" class="list-unstyled collapse">
+                    <li><a href="{{route('seguimiento.indexisc')}}">Todos</a></li>
+                    <li><a href="#iscs" data-toggle="collapse">
+                         Semestre
+                        </a></li>
+                        <ul id="iscs" class="list-unstyled collapse">
+                            <li><a href="{{route('seguimiento.indexiscs5')}}">Semestre 5</a></li>
+                            <li><a href="{{route('seguimiento.indexiscs6')}}">Semestre 6</a></li>
+                            <li><a href="{{route('seguimiento.indexiscs7')}}">Semestre 7</a></li>
+                            <li><a href="{{route('seguimiento.indexiscs8')}}">Semestre 8</a></li>
+                        </ul>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->admin() or Auth::user()->jefela())
+            <li>
+                <a href="#admon" data-toggle="collapse">
+                    <i class="fas fa-building"></i> LADM-2010-234
+                </a>
+                <ul id="admon" class="list-unstyled collapse">
+                    <li><a href="{{route('seguimiento.indexla')}}">Todos</a></li>
+                    <li><a href="#las" data-toggle="collapse">
+                         Semestre
+                        </a></li>
+                        <ul id="las" class="list-unstyled collapse">
+                            <li><a href="{{route('seguimiento.indexlas5')}}">Semestre 5</a></li>
+                            <li><a href="{{route('seguimiento.indexlas6')}}">Semestre 6</a></li>
+                            <li><a href="{{route('seguimiento.indexlas7')}}">Semestre 7</a></li>
+                            <li><a href="{{route('seguimiento.indexlas8')}}">Semestre 8</a></li>
+                        </ul>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->admin() or Auth::user()->jefetsm())
+            <li>
+                <a href="#tsm" data-toggle="collapse"> 
+                    <ion-icon md="md-flashlight" name="flashlight"></ion-icon>Técnico Superior Minas
+                </a>
+                <ul id="tsm" class="list-unstyled collapse">
+                    <li><a href="{{route('seguimiento.indextsm')}}">Todos</a></li>
+                    <li><a href="#tsms" data-toggle="collapse">
+                         Semestre
+                        </a></li>
+                        <ul id="tsms" class="list-unstyled collapse">
+                            <li><a href="{{route('seguimiento.indextsms5')}}">Semestre 5</a></li>
+                            <li><a href="{{route('seguimiento.indextsms6')}}">Semestre 6</a></li>
+                            <li><a href="{{route('seguimiento.indextsms7')}}">Semestre 7</a></li>
+                            <li><a href="{{route('seguimiento.indextsms8')}}">Semestre 8</a></li>
+                        </ul>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->admin() or Auth::user()->jefeinfs())
+            <li>
+                <a href="#inf" data-toggle="collapse">
+                    <i class="fas fa-desktop"></i> IINF-2010-220-ED
+                </a>
+                <ul id="inf" class="list-unstyled collapse">
+                    <li><a href="{{route('seguimiento.indexinfs')}}">Todos</a></li>
+                    <li><a href="#infs" data-toggle="collapse">
+                         Semestre
+                        </a></li>
+                        <ul id="infs" class="list-unstyled collapse">
+                            <li><a href="{{route('seguimiento.indexinfss5')}}">Semestre 5</a></li>
+                            <li><a href="{{route('seguimiento.indexinfss6')}}">Semestre 6</a></li>
+                            <li><a href="{{route('seguimiento.indexinfss7')}}">Semestre 7</a></li>
+                            <li><a href="{{route('seguimiento.indexinfss8')}}">Semestre 8</a></li>
+                        </ul>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->admin() or Auth::user()->jefeiges())
+            <li>
+                <a href="#iged" data-toggle="collapse">
+                    <ion-icon md="md-business" name="business"></ion-icon> IGEM-2009-201-ED
+                </a>
+                <ul id="iged" class="list-unstyled collapse">
+                    <li><a href="{{route('seguimiento.indexiges')}}">Todos</a></li>
+                    <li><a href="#igesss" data-toggle="collapse">
+                         Semestre
+                        </a></li>
+                        <ul id="igesss" class="list-unstyled collapse">
+                            <li><a href="{{route('seguimiento.indexigess5')}}">Semestre 5</a></li>
+                            <li><a href="{{route('seguimiento.indexigess6')}}">Semestre 6</a></li>
+                            <li><a href="{{route('seguimiento.indexigess7')}}">Semestre 7</a></li>
+                            <li><a href="{{route('seguimiento.indexigess8')}}">Semestre 8</a></li>
+                        </ul>
+                </ul>
+            </li>
+            @endif
+        </ul>
+    </div>

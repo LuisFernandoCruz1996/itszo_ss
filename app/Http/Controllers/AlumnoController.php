@@ -14,10 +14,6 @@ class AlumnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('alumno.index');
-    }
 
     public function perfil()
     {
@@ -62,6 +58,7 @@ class AlumnoController extends Controller
         $useralumno->save();
 
         $alumno = Alumno::find($id);
+        $alumno->no_control=$request->no_identificacion;
         $alumno->sexo=$request->sexo;
         $alumno->telefono=$request->telefono;
         $alumno->domicilio=$request->domicilio;
@@ -76,19 +73,4 @@ class AlumnoController extends Controller
         return redirect()->route('perfil');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
 }

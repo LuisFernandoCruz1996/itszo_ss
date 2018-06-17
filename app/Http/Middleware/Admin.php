@@ -39,10 +39,17 @@ class Admin
         {
             return $next($request);
         }
+        if($this->auth->User()->acceso())
+        {
+            return redirect()->route('createacces');
+        }
+        if($this->auth->User()->jefe_otros())
+        {
+            return redirect()->route('seguimiento.indexisc');
+        }
         else
         {
-            return redirect()->route('welcome');
-        }
-        
+            return redirect('/');
+        }      
     }
 }

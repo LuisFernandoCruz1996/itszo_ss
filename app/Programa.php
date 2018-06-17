@@ -12,6 +12,6 @@ class Programa extends Model
 
     public function alumno()
     {
-        return $this->hasOne('App\Alumno');
+        return $this->hasOne('App\Alumno', 'id');
     }
 }

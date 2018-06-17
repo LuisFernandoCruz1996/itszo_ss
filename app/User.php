@@ -39,7 +39,7 @@ class User extends Authenticatable
         //Relacion con alumnos
     public function alumno()
     {
-        return $this->hasOne('App\Alumno');
+        return $this->hasOne('App\Alumno','no_control', 'id');
     }
 
     //Identificar roles de usuarios
@@ -72,15 +72,6 @@ class User extends Authenticatable
     {
         if($this->rol ==='Administrador'){
             return $this->rol ==='Administrador';
-        }
-        if($this->rol ==='Jefe'){
-            return $this->rol ==='Jefe';
-        }
-        if($this->rol ==='Otro'){
-            return $this->rol ==='Otro';
-        }
-        else{
-            return False;
         }
     }
 

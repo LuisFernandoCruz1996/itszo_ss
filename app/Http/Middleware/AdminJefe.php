@@ -28,11 +28,11 @@ class AdminJefe
     {
         if($this->auth->User()->adminjefes())
         {
-            return redirect()->route('welcome');
+            return $next($request);
         }
         else
         {
-            return $next($request);
+            return redirect()->route('welcome');
         }
     }
 }

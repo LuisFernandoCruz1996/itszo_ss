@@ -3,6 +3,38 @@
 @section('title', 'Editar solicitud de servicio social')
 
 @section('content')
+<div class="testimonials">
+     <div class="test_agile_info">
+    <div class="container">
+      <ul id="flexiselDemo1">     
+        <li>
+          <div class="wthree_testimonials_grid_main">
+            <div class="wthree_testimonials_grid">
+              <h4>¡Estudiante!</h4>
+              <p>Recuerda que solo puedes agregar reportes bimestrales y no puedes modificar ni eliminar reportes, así que ten cuidado a la hora de mandar algún reporte..</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="wthree_testimonials_grid_main">
+            <div class="wthree_testimonials_grid">
+              <h4>¡Recuerda!</h4>
+              <p>Recuerda la fecha de inicialización del servicio social y la terminación del servicio social, lo encuentras en el ANEXO XVIII. SOLICITUD DE SERVICIO SOCIAL.</p>
+            </div>
+          
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="typo">
+    <div class="container">
+        <div class="wthree_head_section">
+        	<div class="text-center">
+				<h2 class="card-title"><b>ANEXO XVIII. SOLICITUD DE SERVICIO SOCIAL. </b></h2>
+			</div>
 {!! Form::open(['route'=>['solicitud.update',$programa], 'method'=>'PUT']) !!}
 	<div class="form-group" style="text-align: left;">
 		{!!Form::label('dependencia_of', 'Dependencia oficial: ')!!}
@@ -31,8 +63,13 @@
 
 		{!!Form::label('tip_pro', 'Tipo de programa: ')!!}
 		{{Form::select('tip_pro', ['' => '', 'EPA'=>'EPA','AC'=>'AC','DS'=>'DS','DC'=>'DC','ACULT'=>'ACUL','AALS'=>'AALS','AD'=>'AD','MA'=>'MA','Otro'=>'Otro'], $programa->tip_pro, ['class'=>'form-control'])}}
-
-		{!!Form::submit('Editar usuario',['class'=>'btn btn-primary'])!!}
+	</div>
+		
+		{!!Form::submit('Editar usuario',['class'=>'btn btn-primary btn-block'])!!}
+		<a href="{{route('solicitud.index')}}" class="btn btn-danger btn-block">Cancelar</a>
 
 {!! Form::close() !!}
+		</div>
+	</div>
+</div>
 @endsection

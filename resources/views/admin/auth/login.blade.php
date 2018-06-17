@@ -42,7 +42,8 @@
 			<span class="fa fa-lock form-control-feedback"></span>
 		</div>
 		<div class="form-group">
-			{!! Form::submit('Acceder', ['class' => 'btn btn-primary btn-block btn-flat']) !!}
+			{!! Form::submit('Acceder', ['class' => 'btn btn-block btn-flat', 'style'=>'background-color: #15593C; border-color: #15593C; lighting-color: #15593C; -webkit-text-fill-color: #FFF;']) !!}
+      <a href="{{route('welcome')}}" class="btn btn-block" style="background-color: #1B396A; border-color: #1B396A; lighting-color: #1B396A; -webkit-text-fill-color: #FFF;">Cancelar</a>
 		</div>
 	{!! Form::close() !!}
 

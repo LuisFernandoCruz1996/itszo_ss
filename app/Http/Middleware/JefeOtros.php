@@ -31,9 +31,16 @@ class JefeOtros
         {
             return $next($request);
         }
+        if($this->auth->User()->admin()){
+            return $next($request);
+        }
+        if($this->auth->User()->acceso())
+        {
+            return redirect()->route('createacces');
+        }
         else
         {
-            return redirect()->route('welcome');
+            return redirect('/');
         }
     }
 }

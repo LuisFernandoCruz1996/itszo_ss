@@ -14,8 +14,9 @@ class CreateSsAlumnosTable extends Migration
     public function up()
     {
         Schema::create('ss_alumnos', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->foreign('id')->references('id')->on('users');
+            $table->increments('id');
+            $table->integer('no_control')->unsigned()->nullable();
+            $table->foreign('no_control')->references('id')->on('users');
             $table->enum('sexo', ['Masculino','Femenino'])->nullable();
             $table->string('telefono')->nullable();
             $table->string('domicilio')->nullable();

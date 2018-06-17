@@ -30,9 +30,17 @@ class Alumno
         {
             return $next($request);
         }
+        if($this->auth->User()->admin())
+        {
+            return redirect()->route('admin.welcome');
+        }
+        if($this->auth->User()->acceso())
+        {
+            return redirect()->route('createacces');
+        }
         else
         {
-            return redirect()->route('welcome');
+            return redirect()->route('seguimiento.indexisc');
         }
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rbss extends Model
 {
-    protected $table = "rbsss";
+    protected $table = "ss_rbsss";
     
     protected $fillable = ['id','no_control','no_reporte','horas_total','horas_acumuladas',];
 

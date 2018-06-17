@@ -8,21 +8,21 @@ class Alumno extends Model
 {
     protected $table = "ss_alumnos";
     
-    protected $fillable = ['id','sexo','telefono','domicilio','carrera','periodo','semestre','correo','contraseña',];
+    protected $fillable = ['id','no_control','sexo','telefono','domicilio','carrera','periodo','semestre','correo','contraseña',];
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'id');
     }
 
     public function programa()
     {
-        return $this->belongsTo('App\Programa');
+        return $this->belongsTo('App\Programa', 'id');
     }
 
     public function subir_docs()
     {
-        return $this->hasMany('App\Subir_doc');
+        return $this->hasMany('App\Subir_doc', 'id', 'no_control');
     }
 
     public function rbsss()
