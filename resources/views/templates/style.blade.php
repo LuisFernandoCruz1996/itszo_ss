@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{asset('plugins/bootstrapmain/css/bootstrap.css')}}">
 <link rel="stylesheet" href="{{asset('plugins/bootstrapmain/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('plugins/bootstrapmain/css/font-awesome.css')}}">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
 
 <script type="text/javascript" src="{{asset('plugins/bootstrapmain/js/jquery-2.1.4.min.js')}}"></script>
   <script>

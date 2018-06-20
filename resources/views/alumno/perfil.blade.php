@@ -31,7 +31,7 @@
                     <p class="text-muted text-center">Escolaridad</p>
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                            <b>Numero de control: </b> <a class="float-right">{{$alumnos->id}}</a>
+                            <b>Número de control: </b> <a class="float-right">{{$alumnos->id}}</a>
                         </li>
                         <li class="list-group-item">
                             <b>Carrera: </b> <a class="float-right">{{$alumnos->carrera}}</a>

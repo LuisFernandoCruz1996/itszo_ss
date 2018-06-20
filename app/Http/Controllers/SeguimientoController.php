@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Alumno;
+use App\Subir_doc;
 use Illuminate\Support\Facades\DB;
 
 class SeguimientoController extends Controller
@@ -12,8 +13,12 @@ class SeguimientoController extends Controller
 	public function show($id)
     {
     	$alumnos = Alumno::find($id);
+        $documentos = Subir_doc::orderBy('nombre_doc','ACS')->where('no_control','=', $alumnos->id);
+        
 
-    	return view('jefeotro.seguimientoalumno')->with('alumnos', $alumnos);
+
+
+    	return view('jefeotro.seguimientoalumno')->with('alumnos', $alumnos)->with('documentos', $documentos);
     }
 
     //funciones para ige 

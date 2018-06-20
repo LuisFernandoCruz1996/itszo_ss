@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PerfilRequest;
 use App\Alumno;
 use App\User;
 use Laracasts\Flash\Flash;
+use Illuminate\Validation\Rule;
+
 
 class AlumnoController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -46,19 +50,20 @@ class AlumnoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PerfilRequest $request, $id)
     {
+        
         $useralumno = User::find($id);
+
         $useralumno->nombres=$request->nombres;
         $useralumno->apellido_p=$request->apellido_p;
         $useralumno->apellido_m=$request->apellido_m;
-        $useralumno->no_identificacion=$request->no_identificacion;
         $useralumno->rol='Alumno';
         $useralumno->carrera='otro';
         $useralumno->save();
 
         $alumno = Alumno::find($id);
-        $alumno->no_control=$request->no_identificacion;
+        $alumno->no_control=$request->no_control;
         $alumno->sexo=$request->sexo;
         $alumno->telefono=$request->telefono;
         $alumno->domicilio=$request->domicilio;
@@ -66,6 +71,12 @@ class AlumnoController extends Controller
         $alumno->periodo=$request->periodo;
         $alumno->semestre=$request->semestre;
         $alumno->correo=$request->correo;
+        $this->validate($request,[
+            'correo' => [
+                'required',
+                Rule::unique('ss_alumnos')->ignore($alumno->id),
+            ],
+        ]);
         $alumno->save();
 
 

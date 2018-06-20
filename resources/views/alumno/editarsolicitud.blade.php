@@ -29,6 +29,9 @@
   </div>
 </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 <div class="typo">
     <div class="container">
         <div class="wthree_head_section">
@@ -53,10 +56,11 @@
 		{{Form::select('modalidad', ['' => '', 'Interno' => 'Interno', 'Externo' => 'Externo'], $programa->modalidad, ['class'=>'form-control'])}}
 
 		{!!Form::label('fecha_inicio', 'Fecha de inicio: ')!!}
-		{!!Form::text('fecha_inicio', $programa->fecha_inicio,['class'=>'form-control', 'placeholder'=>'Fecha de inicio', 'required'])!!}
+		{!!Form::text('fecha_inicio', $programa->fecha_inicio,['class'=>'form-control', 'id'=>'datepicker','placeholder'=>'Fecha de inicio', 'required'])!!}
+		
 
 		{!!Form::label('fecha_terminacion', 'Fecha de terminacion: ')!!}
-		{!!Form::text('fecha_terminacion', $programa->fecha_terminacion,['class'=>'form-control', 'placeholder'=>'Fecha de terminacion', 'required'])!!}
+		{!!Form::text('fecha_terminacion', $programa->fecha_terminacion,['class'=>'form-control','id'=>'datepicker2', 'placeholder'=>'Fecha de terminacion', 'required'])!!}
 
 		{!!Form::label('programa_actividad', 'Programa de actividades: ')!!}
 		{!!Form::text('programa_actividad', $programa->programa_actividad,['class'=>'form-control', 'placeholder'=>'Programa de actividades', 'required'])!!}
@@ -68,8 +72,20 @@
 		{!!Form::submit('Editar usuario',['class'=>'btn btn-primary btn-block'])!!}
 		<a href="{{route('solicitud.index')}}" class="btn btn-danger btn-block">Cancelar</a>
 
+    	<script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap'
+       		 });
+    	</script>
+
+    	<script>
+        $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap'
+       		 });
+    	</script>
 {!! Form::close() !!}
 		</div>
 	</div>
 </div>
+
 @endsection

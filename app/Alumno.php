@@ -8,7 +8,7 @@ class Alumno extends Model
 {
     protected $table = "ss_alumnos";
     
-    protected $fillable = ['id','no_control','sexo','telefono','domicilio','carrera','periodo','semestre','correo','contraseña',];
+    protected $fillable = ['id','no_control','sexo','telefono','domicilio','carrera','periodo','semestre','correo',];
 
     public function user()
     {

@@ -665,6 +665,10 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
     	'uses'	=>	'SeguimientoController@show',
     	'as'	=>	'seguimiento.alumno.perfil'
     ]);
+
+    Route::get('/download/{file}' , [
+		'uses'	=> 'SubirdocController@downloadFile',
+		'as'	=> 'descargar.archivos']);
 });
 
 //Rutas para los alumnos
