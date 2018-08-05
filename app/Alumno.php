@@ -22,7 +22,7 @@ class Alumno extends Model
 
     public function subir_docs()
     {
-        return $this->hasMany('App\Subir_doc', 'id', 'no_control');
+        return $this->hasMany('App\Subir_doc', 'no_control', 'id');
     }
 
     public function rbsss()

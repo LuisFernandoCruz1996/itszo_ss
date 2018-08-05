@@ -70,7 +70,7 @@ Route::group(['prefix'=>'seguimiento', 'middleware' => ['auth','jefeotros']], fu
     	'uses'	=>	'SeguimientoController@indexigesemestre6',
     	'as'	=>	'seguimiento.indexiges6'
     	]);
-
+ 
     	Route::get('ige/semestre/6/mujeres', [
     	'uses'	=>	'SeguimientoController@indexigesemestre6mujeres',
     	'as'	=>	'seguimiento.indexiges6mujeres'
@@ -668,7 +668,7 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
 
     Route::get('/download/{file}' , [
 		'uses'	=> 'SubirdocController@downloadFile',
-		'as'	=> 'descargar.archivos']);
+		'as'	=> 'descargar.archivo']);
 });
 
 //Rutas para los alumnos

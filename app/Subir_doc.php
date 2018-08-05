@@ -12,8 +12,8 @@ class Subir_doc extends Model
     protected $fillable = ['id','no_control','nombre_doc','bimestre',];
 
     public function alumno()
-    {
-        return $this->belongsTo('App\Alumno','no_control', 'id');
+    { 
+        return $this->belongsTo('App\Alumno','no_control');
     }
 
     public function setNombreDocAttribute($nombre_doc)

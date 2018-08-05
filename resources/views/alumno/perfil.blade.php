@@ -3,52 +3,40 @@
 @section('title',$alumno->nombres)
 
 @section('content')
-<div class="typo">
-    <div class="container">
-        <div class="wthree_head_section">
-              <div class="col-sm-12">
-                <div class="card">
-                  <div class="card-body">
-                  	<div class="text-center">
-                  		<h2 class="card-title"><b>Servicio Social</b></h2>
-                    </div>
-                    <h3 class="profile-username text-center">{{$alumno->nombres}} {{$alumno->apellido_p}} {{$alumno->apellido_m}}</h3>
-                    <p class="text-muted text-center">Datos personales</p>
-                    <ul class="list-group list-group-unbordered mb-3">
-                        <li class="list-group-item">
-                            <b>Sexo: </b> <a class="float-right">{{$alumnos->sexo}}</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Teléfono: </b> <a class="float-right">{{$alumnos->telefono}}</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Domicilio: </b> <a class="float-right">{{$alumnos->domicilio}}</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Correo electronico: </b> <a class="float-right">{{$alumnos->correo}}</a>
-                        </li>
-                    </ul>
-                    <p class="text-muted text-center">Escolaridad</p>
-                    <ul class="list-group list-group-unbordered mb-3">
-                        <li class="list-group-item">
-                            <b>Número de control: </b> <a class="float-right">{{$alumnos->id}}</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Carrera: </b> <a class="float-right">{{$alumnos->carrera}}</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Semestre: </b> <a class="float-right">{{$alumnos->semestre}}</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Periodo: </b> <a class="float-right">{{$alumnos->periodo}}</a>
-                        </li>
-                    </ul>
-                    <a  href="{{route('perfil.editardatos', $alumno->id)}}" class="btn btn-primary btn-block"><b>Editar</b></a>
-                  </div>
-                </div>
-              </div>
+<div class="card" style="padding-left: 20px; padding-right: 20px; border: none;">
+    <h1 class="card-title text-center" style="color: #1B396A;">{{$alumnos->user->nombres}} {{$alumnos->user->apellido_p}} {{$alumnos->user->apellido_m}}</h1>
+    <div class="card-deck">    
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">
+            <p class="text-muted text-center"><b>Datos personales</b></p>
+          </h5>
+          <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Genero: </a>{{$alumnos->sexo}}</b></li>
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Teléfono: </a>{{$alumnos->telefono}}</b></li>
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Domicilio: </a>{{$alumnos->domicilio}}</b></li>
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Correo electronico: </a>{{$alumnos->correo}}</b></li>
+          </ul>
         </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">
+            <p class="text-muted text-center"><b>Escolaridad</b></p>
+          </h5>
+          <ul class="list-group list-group-flush text-center" >
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Número de control: </a>{{$alumnos->id}}</b></li>
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Carrera: </a>{{$alumnos->carrera}}</li>
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Semestre: </a>{{$alumnos->semestre}}</b></li>
+            <li class="list-group-item"><b><a class="font-weight-bold" style="color: #15593C;">Periodo: </a>{{$alumnos->periodo}}</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 30px;">
+        <a  href="{{route('perfil.editardatos', $alumno->id)}}" class="btn btn-primary btn-block" style="background-color: #1B396A;"><b>Editar</b></a>
     </div>
 </div>
+<link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap-carddeck.css')}}">
 
 @endsection

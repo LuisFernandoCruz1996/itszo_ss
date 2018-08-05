@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="card-deck">
+<div class="card-deck"> 
   <div class="card">
     <div class="card-body">
       <h5 class="card-title font-weight-bold">{{$alumnos->user->nombres}} {{$alumnos->user->apellido_p}} {{$alumnos->user->apellido_m}}</h5>
@@ -32,25 +32,27 @@
 	    <li class="list-group-item"><a class="font-weight-bold">Fecha de inicio: </a>{{$alumnos->programa['fecha_inicio']}}</li>
 	    <li class="list-group-item"><a class="font-weight-bold">Fecha de terminación: </a>{{$alumnos->programa['fecha_terminacion']}}</li>
 	    <li class="list-group-item"><a class="font-weight-bold">Actividades: </a>{{$alumnos->programa['programa_actividad']}}</li>
-	    <li class="list-group-item"><a class="font-weight-bold">Tipo de programa: </a>{{$alumnos->programa['tip_pro']}}
+	    <li class="list-group-item"><a class="font-weight-bold">Tipo de programa: </a>{{$alumnos->programa['tip_pro']}}</li>
 	  </ul>
     </div>
   </div>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title font-weight-bold">Documentos envidos</h5>
+      <h5 class="card-title font-weight-bold">Documentos enviados</h5>
       <ul class="list-group list-group-flush">
         
         	@foreach($documentos as $documento)
-                                <tr>
-                                    <td><a href="{{route('descargar.archivos', $documento->nombre_doc)}}">{{$documento->nombre_doc}}</a></td>
-                                    <td>{{$documento->bimestre}}</td>
-                                </tr>
-                        @endforeach
-       
+            <tr>
+              <li class="list-group-item"><a href="{{route('descargar.archivo', $documento->nombre_doc)}}" style="color: #1B396A"><i class="far fa-file-pdf"></i> {{$documento->nombre_doc}} {{$documento->bimestre}}</a>
+
+
+              </li>
+            </tr>
+          @endforeach
+
       </ul>
   	</div>
-  </li>
+  </div>
 </div>
 
 @endsection

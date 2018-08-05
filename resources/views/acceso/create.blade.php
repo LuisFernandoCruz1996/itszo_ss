@@ -11,7 +11,6 @@
 </head>
 <body class="bg-light" style="padding: 15rem; padding-top: 10px">
 
-
     <div class="content p-4">
         <div class="container">
           <div class="row" style="color: #1B396A;">
@@ -32,7 +31,7 @@
 		        <div class="card-header">
 		        </div>
 					<div class="card-body">
-						<div class="form-group{{ $errors->has('nombres') ? ' has-error' : '' }}">
+						<div class="form-group {{ $errors->has('nombres') ? ' has-error' : '' }}">
 							{!!Form::label('nombres', 'Nombre(s):')!!}
 							{!!Form::text('nombres', null,['class'=>'form-control', 'placeholder'=>'Nombre(s)', 'required'])!!}
 							@if ($errors->has('nombres'))

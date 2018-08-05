@@ -22,7 +22,7 @@ class SubirdocController extends Controller
     {
     	return view('documentos.create');
     }
-
+ 
     public function store(Request $request)
     {
     	$documentos=new Subir_doc;

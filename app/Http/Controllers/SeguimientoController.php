@@ -13,11 +13,9 @@ class SeguimientoController extends Controller
 	public function show($id)
     {
     	$alumnos = Alumno::find($id);
-        $documentos = Subir_doc::orderBy('nombre_doc','ACS')->where('no_control','=', $alumnos->id);
-        
 
-
-
+        //$documentos = Subir_doc::orderBy('nombre_doc','ACS');
+        $documentos = DB::table('ss_subir_docs')->select('nombre_doc', 'bimestre')->where('no_control', '=', $alumnos->id)->get();
     	return view('jefeotro.seguimientoalumno')->with('alumnos', $alumnos)->with('documentos', $documentos);
     }
 

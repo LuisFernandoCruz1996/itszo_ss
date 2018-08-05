@@ -22,7 +22,7 @@ class CreateSsAlumnosTable extends Migration
             $table->string('domicilio')->nullable();
             $table->enum('carrera', ['IGE','IND','ISC','LA','TSM','INFS','IGES'])->nullable();
             $table->string('periodo')->nullable();
-            $table->enum('semestre',['5','6','7','8','9','10','11'])->nullable();
+            $table->enum('semestre',['6','7','8'])->nullable();
             $table->string('correo')->nullable();
             $table->timestamps();
         });
