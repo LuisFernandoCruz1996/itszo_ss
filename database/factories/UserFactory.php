@@ -15,26 +15,13 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
-        'nombres' => $faker->name,
-        'apellido_p' => $faker->lastName,
-        'apellido_m' => $faker->lastName,
-        'no_identificacion' => $faker->unique()->postcode,
-        'rol' => 'Alumno',
-        'carrera' => 'Otro',
-        'password' => \Hash::make('123456'), // secret
-        'remember_token' => str_random(10),
-    ];
-});
-
-$factory->defineAs(App\User::class, 'Administrador', function ($faker) {
-    return [
-        'nombres' => $faker->name,
-        'apellido_p' => $faker->lastName,
-        'apellido_m' => $faker->lastName,
-        'no_identificacion' => $faker->unique()->postcode,
+        'nombres' => 'admin',
+        'apellido_p' => 'admin',
+        'apellido_m' => 'admin',
+        'no_identificacion' => 'admin',
         'rol' => 'Administrador',
         'carrera' => 'Otro',
-        'password' => \Hash::make('123456'), // secret
+        'password' => \Hash::make('admin'), // secret
         'remember_token' => str_random(10),
     ];
 });

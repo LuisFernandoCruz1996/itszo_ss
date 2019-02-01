@@ -44,12 +44,9 @@
         	@foreach($documentos as $documento)
             <tr>
               <li class="list-group-item"><a href="{{route('descargar.archivo', $documento->nombre_doc)}}" style="color: #1B396A"><i class="far fa-file-pdf"></i> {{$documento->nombre_doc}} {{$documento->bimestre}}</a>
-
-
               </li>
             </tr>
           @endforeach
-
       </ul>
   	</div>
   </div>
